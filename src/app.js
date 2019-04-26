@@ -8,6 +8,7 @@ const personParent = document.getElementById('person');
 
 let random = Math.floor(Math.random() * words.length);
 let randomWord = words[random];
+console.log(randomWord);
 let emptyWordArray = Array(randomWord.length);
 let answerWordArray = randomWord.split('');
 let wrongScore = 0;
