@@ -6,6 +6,7 @@ const userGuess = document.getElementById('guess');
 const blanksParent = document.getElementById('blanks');
 const personParent = document.getElementById('person');
 const wrongCharParent = document.getElementById('wrong-char');
+const resultParent = document.getElementById('results');
 
 let random = Math.floor(Math.random() * words.length);
 let randomWord = words[random];
@@ -38,13 +39,18 @@ submitButton.addEventListener('click', () => {
     }
     wrongScore++;
     if(wrongScore === 6) {
-      console.log('YOU LOSE');
+      const loseSpan = document.createElement('span');
+      loseSpan.textContent = ' YOU LOSE!';
+      resultParent.appendChild(loseSpan);
       submitButton.disabled = true;
     }
   }
 
   console.log(emptyWordArray);
   if(emptyWordArray.toString('') === answerWordArray.toString('')) {
+    const winSpan = document.createElement('span');
+    winSpan.textContent = ' YOU WIN!';
+    resultParent.appendChild(winSpan);
     console.log('YOU WIN');
   }
 });
