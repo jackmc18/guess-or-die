@@ -6,6 +6,19 @@ section {
   display: block;
 }
 
+#blanks {
+  display: block;
+  margin-top: 50px;
+}
+
+.blank {
+  display: inline-block;
+  width: 2em;
+  height: .5em;
+  background-color: black;
+  margin: 10px;
+}
+
 .drawing {
   position: relative;
   height: 25em;
