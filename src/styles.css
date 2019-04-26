@@ -1,3 +1,98 @@
 body {
   text-align: center;
 }
+
+.vert-pole {
+  width: 1%;
+  height: 50%;
+  background-color: black;
+  position: absolute;
+  top:20%;
+  left: 40%;
+}
+
+.short-vert-pole {
+  width: 1%;
+  height: 10%;
+  background-color: black;
+  position: absolute;
+  top:20%;
+  right: 40%;
+}
+
+.horiz-pole {
+  width: 20%;
+  height: 1%;
+  background-color: black;
+  position: absolute;
+  top:20%;
+  left: 40%;
+}
+
+.bottom-plat {
+  width: 20%;
+  height: 1%;
+  background-color: black;
+  position: absolute;
+  top: 70%;
+  left: 30%;
+}
+
+.person {
+  position: absolute;
+  top: 28%;
+  right: 35%;
+}
+
+.head {
+  width: 5em;
+  height: 5em;
+  background-color: black;
+  border-radius: 100%;
+}
+
+.body {
+  width: 5em;
+  height: 8em;
+  background-color: black;
+}
+
+.left-arm {
+  width: 1em;
+  height: 6em;
+  background-color: black;
+  position: absolute;
+  top: 40%;
+  left: 110%;
+  transform: skew(30deg);
+}
+
+.right-arm {
+  width: 1em;
+  height: 6em;
+  background-color: black;
+  position: absolute;
+  top: 40%;
+  right: 110%;
+  transform: skew(-30deg);
+}
+
+.left-leg {
+  width: 1.5em;
+  height: 6em;
+  background-color: black;
+  position: absolute;
+  top: 100%;
+  right: 100%;
+  transform: skew(-30deg);
+}
+
+.right-leg {
+  width: 1.5em;
+  height: 6em;
+  background-color: black;
+  position: absolute;
+  top: 100%;
+  left: 100%;
+  transform: skew(30deg);
+}
