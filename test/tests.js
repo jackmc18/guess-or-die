@@ -3,7 +3,7 @@ const test = QUnit.test;
 // const words = ['javascript', 'language', 'scripting', 'interpreted', 'dynamic',
 //   'programming', 'array', 'integer', 'string', 'method', 'property', 'argument'];
 
-function guessChecker(word, letter) {
+function checkGuess(word, letter) {
   let indices = [];
   for(let i = 0; i < word.length; i++) {
     if(word[i] === letter) {
@@ -21,7 +21,7 @@ test('Guess a letter which exists in the word expect [0] back', function(assert)
   const expected = [0];
   //Act 
   // Call the function you're testing and set the result to a const
-  const result = guessChecker(word, guess);
+  const result = checkGuess(word, guess);
   //Assert
   assert.deepEqual(result, expected);
 });
@@ -34,7 +34,7 @@ test('Guess a letter which exists twice in the word expect [1, 3] back', functio
   const expected = [1, 3];
   //Act 
   // Call the function you're testing and set the result to a const
-  const result = guessChecker(word, guess);
+  const result = checkGuess(word, guess);
   //Assert
   assert.deepEqual(result, expected);
 });
@@ -48,7 +48,7 @@ test('Guess a letter which doesn`t exist in the word expect [] back', function(a
   const expected = [];
   //Act 
   // Call the function you're testing and set the result to a const
-  const result = guessChecker(word, guess);
+  const result = checkGuess(word, guess);
   //Assert
   assert.deepEqual(result, expected);
 });
