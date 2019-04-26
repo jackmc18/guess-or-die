@@ -5,6 +5,7 @@ const submitButton = document.getElementById('submit');
 const userGuess = document.getElementById('guess');
 const blanksParent = document.getElementById('blanks');
 const personParent = document.getElementById('person');
+const wrongCharParent = document.getElementById('wrong-char');
 
 let random = Math.floor(Math.random() * words.length);
 let randomWord = words[random];
@@ -29,6 +30,7 @@ submitButton.addEventListener('click', () => {
     }
   }
   else {
+    handleAddWrongChar(wrongCharParent, userGuess.value);
     for(let i = 0; i < personParent.children.length; i++) {
       if(i === wrongScore) {
         personParent.children[i].classList.remove('hidden');
@@ -46,4 +48,10 @@ submitButton.addEventListener('click', () => {
     console.log('YOU WIN');
   }
 });
+
+function handleAddWrongChar(parent, character) {
+  const span = document.createElement('span');
+  span.textContent = character + ' ';
+  parent.appendChild(span);
+}
 
