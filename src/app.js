@@ -38,6 +38,7 @@ submitButton.addEventListener('click', () => {
     wrongScore++;
     if(wrongScore === 6) {
       console.log('YOU LOSE');
+      submitButton.disabled = true;
     }
   }
 
