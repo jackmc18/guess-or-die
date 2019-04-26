@@ -1,8 +1,9 @@
 import { checkGuess, words } from './check-guess.js';
+import createBlanks from './create-blanks.js';
 
 const submitButton = document.getElementById('submit');
 const userGuess = document.getElementById('guess');
-const blanks = document.getElementById('blanks');
+const blanksParent = document.getElementById('blanks');
 
 let random = Math.floor(Math.random() * words.length);
 let randomWord = words[random];
@@ -10,13 +11,7 @@ console.log(randomWord);
 let emptyWordArray = Array(randomWord.length);
 let answerWordArray = randomWord.split('');
 
-
-for(let i = 0; i < randomWord.length; i++) {
-  let blankDiv = document.createElement('div');
-  blankDiv.classList.add('blank');
-  blanks.appendChild(blankDiv);
-  console.log('add div');
-}
+createBlanks(blanksParent, randomWord);
 
 submitButton.addEventListener('click', () => {
   const indices = checkGuess(randomWord, userGuess.value);
