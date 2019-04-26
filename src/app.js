@@ -10,6 +10,7 @@ let randomWord = words[random];
 console.log(randomWord);
 let emptyWordArray = Array(randomWord.length);
 let answerWordArray = randomWord.split('');
+let wrongScore = 0;
 
 createBlanks(blanksParent, randomWord);
 
@@ -27,6 +28,7 @@ submitButton.addEventListener('click', () => {
     }
   }
   else {
+    wrongScore++;
     console.log('you guessed wrong');
   }
 
