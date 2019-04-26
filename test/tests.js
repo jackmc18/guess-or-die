@@ -40,3 +40,16 @@ test('Guess a letter which doesn`t exist in the word expect [] back', function(a
   //Assert
   assert.deepEqual(result, expected);
 });
+
+test('Guess an uppercase letter in the word expect [0] back', function(assert) {
+  //Arrange
+  // Set up your parameters and expectations
+  const word = 'javascript';
+  const guess = 'J';
+  const expected = [0];
+  //Act 
+  // Call the function you're testing and set the result to a const
+  const result = checkGuess(word, guess);
+  //Assert
+  assert.deepEqual(result, expected);
+});

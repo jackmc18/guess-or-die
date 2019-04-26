@@ -4,7 +4,7 @@ const words = ['javascript', 'language', 'scripting', 'interpreted', 'dynamic',
 function checkGuess(word, letter) {
   let indices = [];
   for(let i = 0; i < word.length; i++) {
-    if(word[i] === letter) {
+    if(word[i] === letter.toLowerCase()) {
       indices.push(i);
     }
   }
