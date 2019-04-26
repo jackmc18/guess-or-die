@@ -1,5 +1,5 @@
-// const words = ['javascript', 'language', 'scripting', 'interpreted', 'dynamic',
-//   'programming', 'array', 'integer', 'string', 'method', 'property', 'argument'];
+const words = ['javascript', 'language', 'scripting', 'interpreted', 'dynamic',
+  'programming', 'array', 'integer', 'string', 'method', 'property', 'argument'];
 
 function checkGuess(word, letter) {
   let indices = [];
@@ -11,4 +11,4 @@ function checkGuess(word, letter) {
   return indices;
 }
 
-export { checkGuess };
+export { checkGuess, words };
