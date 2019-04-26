@@ -7,8 +7,14 @@ section {
 }
 
 #blanks {
-  display: block;
   margin-top: 50px;
+}
+
+.character {
+  display: inline-block;
+  width: 2em;
+  height: .5em;
+  margin: 10px;
 }
 
 .blank {
