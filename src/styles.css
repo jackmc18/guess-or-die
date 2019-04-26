@@ -2,12 +2,22 @@ body {
   text-align: center;
 }
 
+section {
+  display: block;
+}
+
+.drawing {
+  position: relative;
+  height: 25em;
+  margin-top: 2em;
+}
+
 .vert-pole {
   width: 1%;
-  height: 50%;
+  height: 100%;
   background-color: black;
   position: absolute;
-  top:20%;
+  top: 0%;
   left: 40%;
 }
 
@@ -16,8 +26,8 @@ body {
   height: 10%;
   background-color: black;
   position: absolute;
-  top:20%;
-  right: 40%;
+  top: 0%;
+  left: 60%;
 }
 
 .horiz-pole {
@@ -25,7 +35,7 @@ body {
   height: 1%;
   background-color: black;
   position: absolute;
-  top:20%;
+  top: 0%;
   left: 40%;
 }
 
@@ -34,14 +44,14 @@ body {
   height: 1%;
   background-color: black;
   position: absolute;
-  top: 70%;
+  top: 100%;
   left: 30%;
 }
 
 .person {
   position: absolute;
-  top: 28%;
-  right: 35%;
+  top: 8%;
+  left: 56%;
 }
 
 .head {
@@ -49,12 +59,16 @@ body {
   height: 5em;
   background-color: black;
   border-radius: 100%;
+  position: relative;
+  top: 0%;;
 }
 
 .body {
   width: 5em;
   height: 8em;
   background-color: black;
+  position: absolute;
+  top: 100%;
 }
 
 .left-arm {
@@ -62,9 +76,9 @@ body {
   height: 6em;
   background-color: black;
   position: absolute;
-  top: 40%;
-  left: 110%;
   transform: skew(30deg);
+  top: 100%;
+  left: 110%;
 }
 
 .right-arm {
@@ -72,9 +86,9 @@ body {
   height: 6em;
   background-color: black;
   position: absolute;
-  top: 40%;
-  right: 110%;
   transform: skew(-30deg);
+  top: 100%;
+  right: 110%;
 }
 
 .left-leg {
@@ -82,9 +96,10 @@ body {
   height: 6em;
   background-color: black;
   position: absolute;
-  top: 100%;
-  right: 100%;
   transform: skew(-30deg);
+  top: 250%;
+  right: 100%;
+
 }
 
 .right-leg {
@@ -92,7 +107,7 @@ body {
   height: 6em;
   background-color: black;
   position: absolute;
-  top: 100%;
-  left: 100%;
   transform: skew(30deg);
+  top: 250%;
+  left: 100%;
 }
