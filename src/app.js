@@ -4,6 +4,8 @@ import createBlanks from './create-blanks.js';
 const submitButton = document.getElementById('submit');
 const userGuess = document.getElementById('guess');
 const blanksParent = document.getElementById('blanks');
+const personParent = document.getElementById('person');
+console.log(personParent);
 
 let random = Math.floor(Math.random() * words.length);
 let randomWord = words[random];
@@ -28,13 +30,20 @@ submitButton.addEventListener('click', () => {
     }
   }
   else {
+    for(let i = 0; i < personParent.children.length; i++) {
+      if(i === wrongScore) {
+        personParent.children[i].classList.remove('hidden');
+      }
+    }
     wrongScore++;
-    console.log('you guessed wrong');
+    if(wrongScore === 6) {
+      console.log('YOU LOSE');
+    }
   }
 
   console.log(emptyWordArray);
   if(emptyWordArray.toString('') === answerWordArray.toString('')) {
-    console.log('you won');
+    console.log('YOU WIN');
   }
 });
 
