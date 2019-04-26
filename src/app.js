@@ -15,9 +15,21 @@ createBlanks(blanksParent, randomWord);
 
 submitButton.addEventListener('click', () => {
   const indices = checkGuess(randomWord, userGuess.value);
-  for(let i = 0; i < indices.length; i++) {
-    emptyWordArray[indices[i]] = userGuess.value;
+  if(indices.length) {
+    for(let i = 0; i < indices.length; i++) {
+      emptyWordArray[indices[i]] = userGuess.value;
+    }
+    for(let i = 0; i < blanksParent.children.length; i++) {
+      if(emptyWordArray[i] !== undefined) {
+        blanksParent.children[i].classList.remove('blank');
+        blanksParent.children[i].textContent = emptyWordArray[i];
+      }
+    }
   }
+  else {
+    console.log('you guessed wrong');
+  }
+
   console.log(emptyWordArray);
   if(emptyWordArray.toString('') === answerWordArray.toString('')) {
     console.log('you won');
