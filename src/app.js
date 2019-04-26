@@ -5,16 +5,18 @@ const userGuess = document.getElementById('guess');
 
 let random = Math.floor(Math.random() * words.length);
 let randomWord = words[random];
-let emptyWord = Array(randomWord.length);
 console.log(randomWord);
-console.log(emptyWord);
+let emptyWordArray = Array(randomWord.length);
+let answerWordArray = randomWord.split('');
 
 submitButton.addEventListener('click', () => {
   const indices = checkGuess(randomWord, userGuess.value);
-  console.log(indices);
   for(let i = 0; i < indices.length; i++) {
-    emptyWord[indices[i]] = userGuess.value;
+    emptyWordArray[indices[i]] = userGuess.value;
   }
-  console.log(emptyWord);
+  console.log(emptyWordArray);
+  if(emptyWordArray.toString('') === answerWordArray.toString('')) {
+    console.log('you won');
+  }
 });
 
