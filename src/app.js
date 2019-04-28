@@ -1,5 +1,7 @@
 import checkGuess from './check-guess.js';
 import createBlanks from './create-blanks.js';
+import addWrongChar from './add-wrong-char.js';
+import getRandomWord from './get-random-word.js';
 import words from './words.js';
 
 const submitButton = document.getElementById('submit');
@@ -26,7 +28,7 @@ createBlanks(blanksParent, randomWord);
 
 submitButton.addEventListener('click', () => {
   const indices = checkGuess(randomWord, userGuess.value);
-  if(indices.length) { 
+  if(indices.length) {
     for(let i = 0; i < indices.length; i++) {
       emptyWordArray[indices[i]] = userGuess.value;
     }
@@ -86,15 +88,3 @@ resetButton.addEventListener('click', () => {
   resetButton.classList.add('hidden');
   submitButton.disabled = false;
 });
-
-function addWrongChar(parent, character) {
-  const span = document.createElement('span');
-  span.textContent = character + ' ';
-  parent.appendChild(span);
-}
-
-function getRandomWord(words) {
-  let random = Math.floor(Math.random() * words.length);
-  let randomWord = words[random];
-  return randomWord;
-}
