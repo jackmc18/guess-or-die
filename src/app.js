@@ -46,12 +46,11 @@ submitButton.addEventListener('click', () => {
     }
   }
 
-  console.log(emptyWordArray);
   if(emptyWordArray.toString('') === answerWordArray.toString('')) {
     const winSpan = document.createElement('span');
     winSpan.textContent = ' YOU WIN!';
     resultParent.appendChild(winSpan);
-    console.log('YOU WIN');
+    submitButton.disabled = true;
   }
 });
 
