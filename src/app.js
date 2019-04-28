@@ -8,8 +8,7 @@ const personParent = document.getElementById('person');
 const wrongCharParent = document.getElementById('wrong-char');
 const resultParent = document.getElementById('results');
 
-let random = Math.floor(Math.random() * words.length);
-let randomWord = words[random];
+let randomWord = getRandomWord(words);
 console.log(randomWord);
 let emptyWordArray = Array(randomWord.length);
 let answerWordArray = randomWord.split('');
@@ -60,3 +59,8 @@ function handleAddWrongChar(parent, character) {
   parent.appendChild(span);
 }
 
+function getRandomWord(words) {
+  let random = Math.floor(Math.random() * words.length);
+  let randomWord = words[random];
+  return randomWord;
+}
