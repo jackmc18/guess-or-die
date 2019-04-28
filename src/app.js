@@ -2,6 +2,7 @@ import checkGuess from './check-guess.js';
 import createBlanks from './create-blanks.js';
 import addWrongChar from './add-wrong-char.js';
 import getRandomWord from './get-random-word.js';
+import processResults from './process-results.js';
 import words from './words.js';
 
 const submitButton = document.getElementById('submit');
@@ -49,18 +50,14 @@ submitButton.addEventListener('click', () => {
     wrongScore++;
     wrongCharScore.textContent = 'Wrong Characters: ' + wrongScore;
     if(wrongScore === 6) {
-      resultParent.textContent = 'Results: YOU LOSE!';
-      lossesCount++;
-      lossesScore.textContent = 'Losses: ' + lossesCount;
+      processResults(false, resultParent, lossesScore, lossesCount);
       submitButton.disabled = true;
       resetButton.classList.remove('hidden');
     }
   }
 
   if(emptyWordArray.toString('') === answerWordArray.toString('')) {
-    resultParent.textContent = 'Results: YOU WIN!';
-    winsCount++;
-    winsScore.textContent = 'Wins: ' + winsCount;
+    processResults(true, resultParent, winsScore, winsCount);
     submitButton.disabled = true;
     resetButton.classList.remove('hidden');
   }
@@ -88,3 +85,4 @@ resetButton.addEventListener('click', () => {
   resetButton.classList.add('hidden');
   submitButton.disabled = false;
 });
+
