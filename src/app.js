@@ -46,9 +46,7 @@ submitButton.addEventListener('click', () => {
     wrongScore++;
     wrongCharScore.textContent = 'Wrong Characters: ' + wrongScore;
     if(wrongScore === 6) {
-      const loseSpan = document.createElement('span');
-      loseSpan.textContent = ' YOU LOSE!';
-      resultParent.appendChild(loseSpan);
+      resultParent.textContent = 'Results: YOU LOSE!';
       lossesCount++;
       lossesScore.textContent = 'Losses: ' + lossesCount;
       submitButton.disabled = true;
@@ -57,9 +55,7 @@ submitButton.addEventListener('click', () => {
   }
 
   if(emptyWordArray.toString('') === answerWordArray.toString('')) {
-    const winSpan = document.createElement('span');
-    winSpan.textContent = ' YOU WIN!';
-    resultParent.appendChild(winSpan);
+    resultParent.textContent = 'Results: YOU WIN!';
     winsCount++;
     winsScore.textContent = 'Wins: ' + winsCount;
     submitButton.disabled = true;
@@ -78,6 +74,7 @@ resetButton.addEventListener('click', () => {
   for(let i = 0; i < randomWord.length; i++) {
     blanksParent.removeChild(blanksParent.firstChild);
   }
+  resultParent.textContent = 'Results: ';
   randomWord = getRandomWord(words);
   emptyWordArray = Array(randomWord.length);
   answerWordArray = randomWord.split('');
