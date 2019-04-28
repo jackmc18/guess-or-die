@@ -25,7 +25,7 @@ createBlanks(blanksParent, randomWord);
 
 submitButton.addEventListener('click', () => {
   const indices = checkGuess(randomWord, userGuess.value);
-  if(indices.length) {
+  if(indices.length) { 
     for(let i = 0; i < indices.length; i++) {
       emptyWordArray[indices[i]] = userGuess.value;
     }
@@ -82,6 +82,7 @@ resetButton.addEventListener('click', () => {
   emptyWordArray = Array(randomWord.length);
   answerWordArray = randomWord.split('');
   wrongScore = 0;
+  wrongCharScore.textContent = 'Wrong Characters: ' + wrongScore;
   console.log(randomWord);
   createBlanks(blanksParent, randomWord);
   submitButton.disabled = false;
