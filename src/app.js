@@ -85,6 +85,7 @@ resetButton.addEventListener('click', () => {
   wrongCharScore.textContent = 'Wrong Characters: ' + wrongScore;
   console.log(randomWord);
   createBlanks(blanksParent, randomWord);
+  resetButton.classList.add('hidden');
   submitButton.disabled = false;
 });
 
