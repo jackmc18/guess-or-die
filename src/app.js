@@ -5,7 +5,7 @@ const submitButton = document.getElementById('submit');
 const userGuess = document.getElementById('guess');
 const blanksParent = document.getElementById('blanks');
 const personParent = document.getElementById('person');
-const wrongCharParent = document.getElementById('wrong-char');
+const wrongCharParent = document.getElementById('wrong-char-letters');
 const resultParent = document.getElementById('results');
 const resetButton = document.getElementById('reset');
 

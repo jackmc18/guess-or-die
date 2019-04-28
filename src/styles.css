@@ -10,6 +10,14 @@ section {
   margin-top: 50px;
 }
 
+.scoreboard {
+  margin: 20px 0;
+}
+
+.score {
+  margin: 0 20px;
+}
+
 .character {
   display: inline-block;
   width: 2em;

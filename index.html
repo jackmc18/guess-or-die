@@ -15,11 +15,15 @@
     <h2>Be careful to not use to many guesses!</h2>
   </header>
   <section>
+    <section class="scoreboard">
+      <span id="wins" class="score">Wins: 0</span>
+      <span id="losses" class="score">Losses: 0</span>
+    </section>
     <label for="guess">Please guess a letter</label>
     <input id="guess" maxlength=1>
     <button id="submit">Submit</button>
-    <p>Wrong Characters:</p>
-    <p id="wrong-char"></p>
+    <p id="wrong-char-score">Wrong Characters: 0</p>
+    <p id="wrong-char-letters"></p>
   </section>
   <section class="drawing">
     <div class="vert-pole"></div>
