@@ -60,6 +60,10 @@ resetButton.addEventListener('click', () => {
   for(let i = 0; i < personParent.children.length; i++) {
     personParent.children[i].classList.add('hidden');
   }
+  let wrongChars = wrongCharParent.children.length;
+  for(let i = 0; i < wrongChars; i++) {
+    wrongCharParent.removeChild(wrongCharParent.firstChild);
+  }
   for(let i = 0; i < randomWord.length; i++) {
     blanksParent.removeChild(blanksParent.firstChild);
   }
