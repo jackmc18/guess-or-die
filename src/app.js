@@ -1,5 +1,6 @@
-import { checkGuess, words } from './check-guess.js';
+import checkGuess from './check-guess.js';
 import createBlanks from './create-blanks.js';
+import words from './words.js';
 
 const submitButton = document.getElementById('submit');
 const userGuess = document.getElementById('guess');

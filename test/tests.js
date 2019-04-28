@@ -1,4 +1,4 @@
-import { checkGuess } from '../src/check-guess.js';
+import checkGuess from '../src/check-guess.js';
 const test = QUnit.test;
 
 test('Guess a letter which exists in the word expect [0] back', function(assert) {

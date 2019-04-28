@@ -1,6 +1,3 @@
-const words = ['javascript', 'language', 'scripting', 'interpreted', 'dynamic',
-  'programming', 'array', 'integer', 'string', 'method', 'property', 'argument'];
-
 function checkGuess(word, letter) {
   let indices = [];
   for(let i = 0; i < word.length; i++) {
@@ -11,4 +8,4 @@ function checkGuess(word, letter) {
   return indices;
 }
 
-export { checkGuess, words };
+export default checkGuess;
