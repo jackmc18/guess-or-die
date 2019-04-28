@@ -7,6 +7,7 @@ const blanksParent = document.getElementById('blanks');
 const personParent = document.getElementById('person');
 const wrongCharParent = document.getElementById('wrong-char');
 const resultParent = document.getElementById('results');
+const resetButton = document.getElementById('reset');
 
 let randomWord = getRandomWord(words);
 console.log(randomWord);
@@ -30,7 +31,7 @@ submitButton.addEventListener('click', () => {
     }
   }
   else {
-    handleAddWrongChar(wrongCharParent, userGuess.value);
+    addWrongChar(wrongCharParent, userGuess.value);
     for(let i = 0; i < personParent.children.length; i++) {
       if(i === wrongScore) {
         personParent.children[i].classList.remove('hidden');
@@ -42,6 +43,7 @@ submitButton.addEventListener('click', () => {
       loseSpan.textContent = ' YOU LOSE!';
       resultParent.appendChild(loseSpan);
       submitButton.disabled = true;
+      resetButton.classList.remove('hidden');
     }
   }
 
@@ -50,10 +52,27 @@ submitButton.addEventListener('click', () => {
     winSpan.textContent = ' YOU WIN!';
     resultParent.appendChild(winSpan);
     submitButton.disabled = true;
+    resetButton.classList.remove('hidden');
   }
 });
 
-function handleAddWrongChar(parent, character) {
+resetButton.addEventListener('click', () => {
+  for(let i = 0; i < personParent.children.length; i++) {
+    personParent.children[i].classList.add('hidden');
+  }
+  for(let i = 0; i < randomWord.length; i++) {
+    blanksParent.removeChild(blanksParent.firstChild);
+  }
+  randomWord = getRandomWord(words);
+  emptyWordArray = Array(randomWord.length);
+  answerWordArray = randomWord.split('');
+  wrongScore = 0;
+  console.log(randomWord);
+  createBlanks(blanksParent, randomWord);
+  submitButton.disabled = false;
+});
+
+function addWrongChar(parent, character) {
   const span = document.createElement('span');
   span.textContent = character + ' ';
   parent.appendChild(span);
