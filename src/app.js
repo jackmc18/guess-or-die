@@ -6,14 +6,20 @@ const userGuess = document.getElementById('guess');
 const blanksParent = document.getElementById('blanks');
 const personParent = document.getElementById('person');
 const wrongCharParent = document.getElementById('wrong-char-letters');
+const wrongCharScore = document.getElementById('wrong-char-score');
 const resultParent = document.getElementById('results');
 const resetButton = document.getElementById('reset');
+const winsScore = document.getElementById('wins');
+const lossesScore = document.getElementById('losses');
 
 let randomWord = getRandomWord(words);
 console.log(randomWord);
 let emptyWordArray = Array(randomWord.length);
 let answerWordArray = randomWord.split('');
+
 let wrongScore = 0;
+let winsCount = 0;
+let lossesCount = 0;
 
 createBlanks(blanksParent, randomWord);
 
@@ -38,10 +44,13 @@ submitButton.addEventListener('click', () => {
       }
     }
     wrongScore++;
+    wrongCharScore.textContent = 'Wrong Characters: ' + wrongScore;
     if(wrongScore === 6) {
       const loseSpan = document.createElement('span');
       loseSpan.textContent = ' YOU LOSE!';
       resultParent.appendChild(loseSpan);
+      lossesCount++;
+      lossesScore.textContent = 'Losses: ' + lossesCount;
       submitButton.disabled = true;
       resetButton.classList.remove('hidden');
     }
@@ -51,6 +60,8 @@ submitButton.addEventListener('click', () => {
     const winSpan = document.createElement('span');
     winSpan.textContent = ' YOU WIN!';
     resultParent.appendChild(winSpan);
+    winsCount++;
+    winsScore.textContent = 'Wins: ' + winsCount;
     submitButton.disabled = true;
     resetButton.classList.remove('hidden');
   }
