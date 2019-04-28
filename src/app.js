@@ -3,6 +3,7 @@ import createBlanks from './create-blanks.js';
 import addWrongChar from './add-wrong-char.js';
 import getRandomWord from './get-random-word.js';
 import processResults from './process-results.js';
+import displayReset from './display-reset.js';
 import words from './words.js';
 
 const submitButton = document.getElementById('submit');
@@ -50,16 +51,14 @@ submitButton.addEventListener('click', () => {
     wrongScore++;
     wrongCharScore.textContent = 'Wrong Characters: ' + wrongScore;
     if(wrongScore === 6) {
-      processResults(false, resultParent, lossesScore, lossesCount);
-      submitButton.disabled = true;
-      resetButton.classList.remove('hidden');
+      lossesCount = processResults(false, resultParent, lossesScore, lossesCount);
+      displayReset(submitButton, resetButton);
     }
   }
 
   if(emptyWordArray.toString('') === answerWordArray.toString('')) {
-    processResults(true, resultParent, winsScore, winsCount);
-    submitButton.disabled = true;
-    resetButton.classList.remove('hidden');
+    winsCount = processResults(true, resultParent, winsScore, winsCount);
+    displayReset(submitButton, resetButton);
   }
 });
 
@@ -85,4 +84,3 @@ resetButton.addEventListener('click', () => {
   resetButton.classList.add('hidden');
   submitButton.disabled = false;
 });
-

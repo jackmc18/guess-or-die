@@ -7,6 +7,7 @@ function processResults(winFlag, resultParent, score, scoreCount) {
     resultParent.textContent = 'Results: YOU LOSE!';
     score.textContent = 'Losses: ' + scoreCount;
   }
+  return scoreCount;
 }
 
 export default processResults;
