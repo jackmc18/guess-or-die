@@ -16,11 +16,13 @@ const resultParent = document.getElementById('results');
 const resetButton = document.getElementById('reset');
 const winsScore = document.getElementById('wins');
 const lossesScore = document.getElementById('losses');
+const alreadyGuessed = document.getElementById('already-guessed');
 
 let randomWord = getRandomWord(words);
 console.log(randomWord);
 let emptyWordArray = Array(randomWord.length);
 let answerWordArray = randomWord.split('');
+let guessed = [];
 
 let wrongScore = 0;
 let winsCount = 0;
@@ -29,36 +31,43 @@ let lossesCount = 0;
 createBlanks(blanksParent, randomWord);
 
 submitButton.addEventListener('click', () => {
-  const indices = checkGuess(randomWord, userGuess.value);
-  if(indices.length) {
-    for(let i = 0; i < indices.length; i++) {
-      emptyWordArray[indices[i]] = userGuess.value;
-    }
-    for(let i = 0; i < blanksParent.children.length; i++) {
-      if(emptyWordArray[i] !== undefined) {
-        blanksParent.children[i].classList.remove('blank');
-        blanksParent.children[i].textContent = emptyWordArray[i];
+  if(!guessed.includes(userGuess.value)) {
+    guessed.push(userGuess.value);
+    alreadyGuessed.classList.add('hidden');
+    const indices = checkGuess(randomWord, userGuess.value);
+    if(indices.length) {
+      for(let i = 0; i < indices.length; i++) {
+        emptyWordArray[indices[i]] = userGuess.value;
+      }
+      for(let i = 0; i < blanksParent.children.length; i++) {
+        if(emptyWordArray[i] !== undefined) {
+          blanksParent.children[i].classList.remove('blank');
+          blanksParent.children[i].textContent = emptyWordArray[i];
+        }
       }
     }
-  }
-  else {
-    addWrongChar(wrongCharParent, userGuess.value);
-    for(let i = 0; i < personParent.children.length; i++) {
-      if(i === wrongScore) {
-        personParent.children[i].classList.remove('hidden');
+    else {
+      addWrongChar(wrongCharParent, userGuess.value);
+      for(let i = 0; i < personParent.children.length; i++) {
+        if(i === wrongScore) {
+          personParent.children[i].classList.remove('hidden');
+        }
+      }
+      wrongScore++;
+      wrongCharScore.textContent = 'Wrong Characters: ' + wrongScore;
+      if(wrongScore === 6) {
+        lossesCount = processResults(false, resultParent, lossesScore, lossesCount);
+        displayReset(submitButton, resetButton);
       }
     }
-    wrongScore++;
-    wrongCharScore.textContent = 'Wrong Characters: ' + wrongScore;
-    if(wrongScore === 6) {
-      lossesCount = processResults(false, resultParent, lossesScore, lossesCount);
+
+    if(emptyWordArray.toString('') === answerWordArray.toString('')) {
+      winsCount = processResults(true, resultParent, winsScore, winsCount);
       displayReset(submitButton, resetButton);
     }
   }
-
-  if(emptyWordArray.toString('') === answerWordArray.toString('')) {
-    winsCount = processResults(true, resultParent, winsScore, winsCount);
-    displayReset(submitButton, resetButton);
+  else {
+    alreadyGuessed.classList.remove('hidden');
   }
 });
 
