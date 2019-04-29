@@ -11,6 +11,18 @@ section {
   display: block;
 }
 
+input {
+  width: 1em;
+  height: 1em;
+  font-size: 1.2em;
+}
+
+button {
+  margin: 20px;
+  height: 3em;
+  width: 10em;
+}
+
 #blanks {
   margin-top: 50px;
 }
