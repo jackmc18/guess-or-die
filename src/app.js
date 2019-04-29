@@ -82,7 +82,6 @@ resetButton.addEventListener('click', () => {
   }
   resultParent.textContent = 'Results: ';
   randomWord = getRandomWord(words);
-  randomWord = getRandomWord(words);
   emptyWordArray = Array(randomWord.length);
   guessed = [];
   wrongScore = 0;
