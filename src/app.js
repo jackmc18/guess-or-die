@@ -21,7 +21,6 @@ const alreadyGuessed = document.getElementById('already-guessed');
 let randomWord = getRandomWord(words);
 console.log(randomWord);
 let emptyWordArray = Array(randomWord.length);
-let answerWordArray = randomWord.split('');
 let guessed = [];
 
 let wrongScore = 0;
@@ -60,8 +59,7 @@ submitButton.addEventListener('click', () => {
         displayReset(submitButton, resetButton);
       }
     }
-
-    if(emptyWordArray.toString('') === answerWordArray.toString('')) {
+    if(emptyWordArray.join('') === randomWord) {
       winsCount = processResults(true, resultParent, winsScore, winsCount);
       displayReset(submitButton, resetButton);
     }
@@ -84,8 +82,8 @@ resetButton.addEventListener('click', () => {
   }
   resultParent.textContent = 'Results: ';
   randomWord = getRandomWord(words);
+  randomWord = getRandomWord(words);
   emptyWordArray = Array(randomWord.length);
-  answerWordArray = randomWord.split('');
   guessed = [];
   wrongScore = 0;
   wrongCharScore.textContent = 'Wrong Characters: ' + wrongScore;
