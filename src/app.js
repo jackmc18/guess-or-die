@@ -86,6 +86,7 @@ resetButton.addEventListener('click', () => {
   randomWord = getRandomWord(words);
   emptyWordArray = Array(randomWord.length);
   answerWordArray = randomWord.split('');
+  guessed = [];
   wrongScore = 0;
   wrongCharScore.textContent = 'Wrong Characters: ' + wrongScore;
   console.log(randomWord);
