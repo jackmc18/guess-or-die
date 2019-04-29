@@ -150,3 +150,35 @@ section {
 .hidden {
   display: none;
 }
+
+@media only screen and (min-width: 900px) {
+  .drawing {
+    margin: 0 100px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .drawing {
+    margin: 0 200px;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .drawing {
+    margin: 0 400px;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .drawing {
+    margin: 0 500px;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .drawing {
+    margin: 0 600px;
+  }
+}
+
+
