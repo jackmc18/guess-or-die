@@ -30,42 +30,41 @@ let lossesCount = 0;
 createBlanks(blanksParent, randomWord);
 
 submitButton.addEventListener('click', () => {
-  if(!guessed.includes(userGuess.value)) {
-    guessed.push(userGuess.value);
-    alreadyGuessed.classList.add('hidden');
-    const indices = checkGuess(randomWord, userGuess.value);
-    if(indices.length) {
-      for(let i = 0; i < indices.length; i++) {
-        emptyWordArray[indices[i]] = userGuess.value;
-      }
-      for(let i = 0; i < blanksParent.children.length; i++) {
-        if(emptyWordArray[i] !== undefined) {
-          blanksParent.children[i].classList.remove('blank');
-          blanksParent.children[i].textContent = emptyWordArray[i];
-        }
-      }
+  if(guessed.includes(userGuess.value)) {
+    alreadyGuessed.classList.remove('hidden');
+    return;
+  }
+  guessed.push(userGuess.value);
+  alreadyGuessed.classList.add('hidden');
+  const indices = checkGuess(randomWord, userGuess.value);
+  if(indices.length) {
+    for(let i = 0; i < indices.length; i++) {
+      emptyWordArray[indices[i]] = userGuess.value;
     }
-    else {
-      addWrongChar(wrongCharParent, userGuess.value);
-      for(let i = 0; i < personParent.children.length; i++) {
-        if(i === wrongScore) {
-          personParent.children[i].classList.remove('hidden');
-        }
+    for(let i = 0; i < blanksParent.children.length; i++) {
+      if(emptyWordArray[i] !== undefined) {
+        blanksParent.children[i].classList.remove('blank');
+        blanksParent.children[i].textContent = emptyWordArray[i];
       }
-      wrongScore++;
-      wrongCharScore.textContent = 'Wrong Characters: ' + wrongScore;
-      if(wrongScore === 6) {
-        lossesCount = processResults(false, resultParent, lossesScore, lossesCount);
-        displayReset(submitButton, resetButton);
-      }
-    }
-    if(emptyWordArray.join('') === randomWord) {
-      winsCount = processResults(true, resultParent, winsScore, winsCount);
-      displayReset(submitButton, resetButton);
     }
   }
   else {
-    alreadyGuessed.classList.remove('hidden');
+    addWrongChar(wrongCharParent, userGuess.value);
+    for(let i = 0; i < personParent.children.length; i++) {
+      if(i === wrongScore) {
+        personParent.children[i].classList.remove('hidden');
+      }
+    }
+    wrongScore++;
+    wrongCharScore.textContent = 'Wrong Characters: ' + wrongScore;
+    if(wrongScore === 6) {
+      lossesCount = processResults(false, resultParent, lossesScore, lossesCount);
+      displayReset(submitButton, resetButton);
+    }
+  }
+  if(emptyWordArray.join('') === randomWord) {
+    winsCount = processResults(true, resultParent, winsScore, winsCount);
+    displayReset(submitButton, resetButton);
   }
 });
 
