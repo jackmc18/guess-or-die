@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+  text-align: center;
+  background-color: #25274d;
+  color: #AABBB8;
+  font-family: Roboto, 'sans-serif';
+}
+
+section {
+  display: block;
+}
+
+input {
+  width: 1em;
+  height: 1em;
+  font-size: 1.2em;
+}
+
+button {
+  margin: 20px;
+  height: 3em;
+  width: 10em;
+}
+
+#blanks {
+  margin-top: 50px;
+}
+
+.scoreboard {
+  margin: 20px 0;
+}
+
+.score {
+  margin: 0 20px;
+}
+
+.character {
+  display: inline-block;
+  width: 2em;
+  height: .5em;
+  margin: 10px;
+  font-size: 1.2em;
+  vertical-align: middle;
+  line-height: 0px;
+}
+
+.blank {
+  display: inline-block;
+  width: 2em;
+  height: .2em;
+  background-color: black;
+  margin: 10px;
+}
+
+.drawing {
+  position: relative;
+  height: 25em;
+  margin-top: 2em;
+}
+
+.vert-pole {
+  width: .5em;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  top: 0%;
+  left: 40%;
+}
+
+.short-vert-pole {
+  width: .5em;
+  height: 10%;
+  background-color: black;
+  position: absolute;
+  top: 0%;
+  left: 60%;
+}
+
+.horiz-pole {
+  width: 20%;
+  height: .5em;
+  background-color: black;
+  position: absolute;
+  top: 0%;
+  left: 40%;
+}
+
+.bottom-plat {
+  width: 20%;
+  height: 1%;
+  background-color: black;
+  position: absolute;
+  top: 100%;
+  left: 30%;
+}
+
+.person {
+  position: absolute;
+  top: 8%;
+  left: 56%;
+}
+
+.head {
+  width: 5em;
+  height: 5em;
+  background-color: black;
+  border-radius: 100%;
+  position: relative;
+  top: 0%;;
+}
+
+.body {
+  width: 5em;
+  height: 8em;
+  background-color: black;
+  position: absolute;
+  top: 100%;
+}
+
+.left-arm {
+  width: 1em;
+  height: 6em;
+  background-color: black;
+  position: absolute;
+  transform: skew(30deg);
+  top: 100%;
+  left: 110%;
+}
+
+.right-arm {
+  width: 1em;
+  height: 6em;
+  background-color: black;
+  position: absolute;
+  transform: skew(-30deg);
+  top: 100%;
+  right: 110%;
+}
+
+.left-leg {
+  width: 1.5em;
+  height: 6em;
+  background-color: black;
+  position: absolute;
+  transform: skew(-30deg);
+  top: 250%;
+  right: 100%;
+
+}
+
+.right-leg {
+  width: 1.5em;
+  height: 6em;
+  background-color: black;
+  position: absolute;
+  transform: skew(30deg);
+  top: 250%;
+  left: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+@media only screen and (min-width: 900px) {
+  .drawing {
+    margin: 0 100px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .drawing {
+    margin: 0 200px;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .drawing {
+    margin: 0 400px;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .drawing {
+    margin: 0 500px;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .drawing {
+    margin: 0 600px;
+  }
+}
+
+
